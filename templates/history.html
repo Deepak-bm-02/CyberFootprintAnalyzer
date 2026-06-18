@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>
+
+        Risk History
+
+    </title>
+
+    <link rel="stylesheet"
+
+    href="{{ url_for('static',
+
+    filename='style.css') }}">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+
+</head>
+
+
+
+<body>
+
+<div class="container">
+
+<h1>
+
+📊 Risk History
+
+</h1>
+
+<hr>
+
+<br>
+
+<h2>
+
+📈 Risk Trend
+
+</h2>
+
+<br>
+
+<canvas
+
+id="riskChart"
+
+height="100">
+
+</canvas>
+
+<br><br>
+
+
+<table>
+
+<tr>
+
+<th>
+
+Date
+
+</th>
+
+<th>
+
+Risk Score
+
+</th>
+
+<th>
+
+Risk Level
+
+</th>
+
+</tr>
+
+
+{% for item in history %}
+
+<tr>
+
+<td>
+
+{{ item[4] }}
+
+</td>
+
+<td>
+
+{{ item[2] }} %
+
+</td>
+
+<td>
+
+{{ item[3] }}
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+
+</table>
+
+
+<br><br>
+
+
+<a
+
+href="/dashboard"
+
+class="btn">
+
+Dashboard
+
+</a>
+
+
+</div>
+
+<script>
+
+const labels = JSON.parse(
+'{{ dates|tojson|safe }}'
+);
+
+const scores = JSON.parse(
+'{{ scores|tojson|safe }}'
+);
+
+
+const ctx = document
+
+.getElementById(
+
+'riskChart'
+
+)
+
+.getContext(
+
+'2d'
+
+);
+
+
+new Chart(
+
+ctx,
+
+{
+
+type: 'line',
+
+data: {
+
+labels: labels,
+
+datasets: [
+
+{
+
+label:
+
+'Risk Score',
+
+data:
+
+scores,
+
+borderColor:
+
+'#38bdf8',
+
+backgroundColor:
+
+'rgba(56,189,248,0.2)',
+
+fill:
+
+true,
+
+tension:
+
+0.3,
+
+borderWidth:
+
+3,
+
+pointRadius:
+
+5,
+
+pointBackgroundColor:
+
+'#38bdf8'
+
+}
+
+]
+
+},
+
+options: {
+
+responsive: true,
+
+plugins: {
+
+legend: {
+
+display: true,
+
+position: 'top'
+
+}
+
+},
+
+scales: {
+
+y: {
+
+beginAtZero: true,
+
+max: 100,
+
+title: {
+
+display: true,
+
+text: 'Risk Score (%)'
+
+}
+
+},
+
+x: {
+
+title: {
+
+display: true,
+
+text: 'Date'
+
+}
+
+}
+
+}
+
+}
+
+}
+
+);
+
+</script>
+
+</body>
+
+</html>

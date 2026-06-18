@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>
+
+Dashboard
+
+</title>
+
+<link rel="stylesheet"
+
+href="{{ url_for('static',
+
+filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>
+
+Welcome,
+
+{{ session['name'] }}
+
+</h1>
+
+<h2>
+
+CyberFootprint Dashboard
+
+</h2>
+
+<hr>
+
+<br>
+
+<!-- Statistics Section -->
+
+<div class="stats">
+
+    <!-- Total Analyses -->
+
+    <div class="stat-card">
+
+        <h3>
+
+            Total Analyses
+
+        </h3>
+
+        <h1>
+
+            {{ total }}
+
+        </h1>
+
+    </div>
+
+
+    <!-- Average Score -->
+
+    <div class="stat-card">
+
+        <h3>
+
+            Average Score
+
+        </h3>
+
+        <h1>
+
+            {{ avg_score }}%
+
+        </h1>
+
+    </div>
+
+
+    <!-- Highest Score -->
+
+    <div class="stat-card">
+
+        <h3>
+
+            Highest Risk Score
+
+        </h3>
+
+        <h1>
+
+            {{ highest_score }}%
+
+        </h1>
+
+    </div>
+
+</div>
+
+<div class="card">
+
+<h3>
+
+🔎 Analyze Cyber Footprint
+
+</h3>
+
+<p>
+
+Check your online exposure
+
+and cyber risk score.
+
+</p>
+
+<a href="/analyze">
+
+Start Analysis
+
+</a>
+
+</div>
+<br>
+
+<a
+
+href="/history"
+
+class="btn">
+
+📈 View History
+
+</a>
+
+<br>
+
+<div class="card">
+
+<h3>
+
+🚪 Logout
+
+</h3>
+
+<a href="/logout">
+
+Logout
+
+</a>
+
+</div>
+
+</div>
+
+</body>
+
+</html>

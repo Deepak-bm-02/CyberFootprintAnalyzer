@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>
+
+        Analyze Cyber Footprint
+
+    </title>
+
+    <link rel="stylesheet"
+
+    href="{{ url_for('static',
+
+    filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>
+
+🔍 Analyze Cyber Footprint
+
+</h1>
+
+<hr>
+
+<br>
+
+
+<form action="/analyze"
+
+method="POST">
+
+
+<label>
+
+Instagram Public Profile
+
+</label>
+
+<select
+
+name="instagram"
+
+required>
+
+<option value="yes">
+
+Yes
+
+</option>
+
+<option value="no">
+
+No
+
+</option>
+
+</select>
+
+
+<br><br>
+
+
+<label>
+
+Facebook Public Profile
+
+</label>
+
+<select
+
+name="facebook"
+
+required>
+
+<option value="yes">
+
+Yes
+
+</option>
+
+<option value="no">
+
+No
+
+</option>
+
+</select>
+
+
+<br><br>
+
+
+<label>
+
+LinkedIn Public Profile
+
+</label>
+
+<select
+
+name="linkedin"
+
+required>
+
+<option value="yes">
+
+Yes
+
+</option>
+
+<option value="no">
+
+No
+
+</option>
+
+</select>
+
+
+<br><br>
+
+
+<label>
+
+Public Email Visible
+
+</label>
+
+<select
+
+name="public_email"
+
+required>
+
+<option value="yes">
+
+Yes
+
+</option>
+
+<option value="no">
+
+No
+
+</option>
+
+</select>
+
+
+<br><br>
+
+
+<label>
+
+Email Address
+
+</label>
+
+<input
+
+type="email"
+
+name="email"
+
+placeholder="Enter your email"
+
+required>
+
+
+<br><br>
+
+
+<button
+
+type="submit"
+
+class="btn">
+
+Analyze
+
+</button>
+
+
+</form>
+
+
+<br>
+
+
+<a
+
+href="/dashboard"
+
+class="btn">
+
+Dashboard
+
+</a>
+
+
+</div>
+
+</body>
+
+</html>

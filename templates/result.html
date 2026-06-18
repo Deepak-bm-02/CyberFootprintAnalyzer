@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>
+
+        Analysis Result
+
+    </title>
+
+    <link rel="stylesheet"
+
+    href="{{ url_for('static',
+
+    filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>
+
+🛡 Cyber Footprint Analysis Result
+
+</h1>
+
+<hr>
+
+<br>
+
+<!-- Progress Bar -->
+
+<div class="progress">
+
+    <div
+
+    class="progress-bar"
+
+    id="riskBar">
+
+    </div>
+
+</div>
+
+<br><br>
+
+
+<!-- Risk Score Card -->
+
+<div class="card">
+
+<h2>
+
+Risk Level
+
+</h2>
+
+<h1>
+
+{{ risk }}
+
+</h1>
+
+<p>
+
+Risk Score :
+
+<b>
+
+{{ score }}%
+
+</b>
+
+</p>
+
+</div>
+
+
+<br>
+
+
+<!-- Email Breach Card -->
+
+<div class="card">
+
+<h2>
+
+📧 Email Breach Status
+
+</h2>
+
+<p>
+
+Status :
+
+<b>
+
+{{ breach_status }}
+
+</b>
+
+</p>
+
+<p>
+
+Breach Name :
+
+{{ breach_name }}
+
+</p>
+
+<p>
+
+Breach Year :
+
+{{ breach_year }}
+
+</p>
+
+</div>
+
+
+<br>
+
+
+<!-- Recommendations -->
+
+<div class="card">
+
+<h2>
+
+🔐 Security Recommendations
+
+</h2>
+
+<ul>
+
+{% if score > 50 %}
+
+<li>
+
+Make social media profiles private
+
+</li>
+
+<li>
+
+Enable Two Factor Authentication
+
+</li>
+
+<li>
+
+Hide personal email from public websites
+
+</li>
+
+<li>
+
+Use strong and unique passwords
+
+</li>
+
+<li>
+
+Use a Password Manager
+
+</li>
+
+{% elif score > 25 %}
+
+<li>
+
+Review privacy settings
+
+</li>
+
+<li>
+
+Enable Two Factor Authentication
+
+</li>
+
+<li>
+
+Avoid sharing personal information publicly
+
+</li>
+
+{% else %}
+
+<li>
+
+Your cyber hygiene is good.
+
+</li>
+
+<li>
+
+Continue following security best practices.
+
+</li>
+
+<li>
+
+Keep monitoring your online presence.
+
+</li>
+
+{% endif %}
+
+</ul>
+
+</div>
+
+
+<br><br>
+
+
+<a
+
+href="/dashboard"
+
+class="btn">
+
+Dashboard
+
+</a>
+
+
+<a
+
+href="/history"
+
+class="btn">
+
+History
+
+</a>
+
+
+</div>
+
+<script>
+
+document.getElementById(
+
+"riskBar"
+
+).style.width =
+
+"{{ score }}%";
+
+</script>
+
+</body>
+
+</html>
